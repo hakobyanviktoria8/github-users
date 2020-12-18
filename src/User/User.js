@@ -38,7 +38,6 @@ export function User({userData}) {
                     <span>Update: {userData.updated_at.slice(0,10)}</span>
                 </div>
             </div>
-
         </div>
     )
 }

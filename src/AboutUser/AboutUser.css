@@ -1,0 +1,30 @@
+.AboutUser{
+    display: flex;
+    margin: 1rem 0;
+    justify-content: center;
+}
+.AboutUser button{
+    width: 200px;
+    height: 70px;
+    display: flex;
+    margin: .5rem;
+    border-radius: .3rem;
+    border: 1px solid ghostwhite;
+    outline: none;
+}
+.AboutUser button:hover {
+    background: rgba(127, 114, 114, 0.45);
+}
+.AboutUser .text{
+    text-align: center;
+    width: 70%;
+}
+.AboutUser img{
+    width: 30px;
+    padding: 15px;
+}
+.AboutUser h2{
+    margin: 0;
+    padding: .3rem 0 0;
+    font-size: 1rem;
+}
