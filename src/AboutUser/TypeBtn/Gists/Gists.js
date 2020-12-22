@@ -13,7 +13,7 @@ export function Gists({gistsUrl}) {
     console.log(gists);
 
     return(
-        gists ?
+        gists.length ?
             <div className={"CartsWraper"}>
                 {
                     gists.map(gist=>

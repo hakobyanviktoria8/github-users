@@ -13,7 +13,7 @@ export function Following({followgUrl}) {
     console.log(followgUrl);
 
     return(
-        followg ?
+        followg.length ?
             <div className={"Cart-Follows-Wraper"}>
                 {
                     followg.map(follow=>

@@ -1,12 +1,10 @@
 .User{
-    border: 1px solid ghostwhite;
     width: 80%;
     margin: 1rem auto;
     display: flex;
     padding: 1rem;
 }
 .col{
-    border: 1px solid ghostwhite;
     width: 30%;
 }
 .col .avatar{

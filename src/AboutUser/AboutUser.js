@@ -69,6 +69,9 @@ export function AboutUser({userData}) {
                     </nav>
                     <div className={"main"}>
                         <Switch>
+                            <Route exact path="/">
+                                <Repository reposUrl={userData.repos_url}/>
+                            </Route>
                             <Route path="/repository">
                                 <Repository reposUrl={userData.repos_url}/>
                             </Route>
