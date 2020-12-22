@@ -8,7 +8,8 @@ import email from "./img/email.png";
 export function User({userData}) {
     // console.log(userData);
     return(
-        userData && <div className={"User"}>
+        userData &&
+        <div className={"User"}>
             <div className={"col"}>
                 <img className={"avatar"} src={userData.avatar_url} alt=""/>
                 <h3>{userData.login}</h3>

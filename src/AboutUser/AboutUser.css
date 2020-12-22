@@ -1,4 +1,4 @@
-.AboutUser{
+.AboutUser nav{
     display: flex;
     margin: 1rem 0;
     justify-content: center;
@@ -27,4 +27,15 @@
     margin: 0;
     padding: .3rem 0 0;
     font-size: 1rem;
+}
+
+/*2 part*/
+
+.AboutUser a{
+    text-decoration: none;
+}
+.AboutUser .main{
+    width: 84%;
+    margin: 1rem auto;
+    border: 1px solid;
 }
