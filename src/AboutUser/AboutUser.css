@@ -4,13 +4,15 @@
     justify-content: center;
 }
 .AboutUser button{
-    width: 200px;
-    height: 70px;
+    width: 7rem;
+    height: 3rem;
     display: flex;
+    line-height: 0;
     margin: .5rem;
     border-radius: .3rem;
     border: 1px solid ghostwhite;
     outline: none;
+    padding: .2rem;
 }
 .AboutUser button:hover {
     background: rgba(127, 114, 114, 0.45);
@@ -19,19 +21,28 @@
     text-align: center;
     width: 70%;
 }
-.AboutUser img{
-    width: 30px;
-    padding: 15px;
+.AboutUser .img{
+    width: 30%;
+    /*border: 1px solid;*/
 }
+.img img{
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: .6rem 0;
+}
+.text span{
+    font-size: .7rem;
+}
+
 .AboutUser h2{
     margin: 0;
-    padding: .3rem 0 0;
-    font-size: 1rem;
+    padding: .2rem;
+    font-size: 1.2rem;
 }
 
 /*2 part*/
 
-.AboutUser a{
+.AboutUser a:hover{
     text-decoration: none;
 }
 .AboutUser .main{

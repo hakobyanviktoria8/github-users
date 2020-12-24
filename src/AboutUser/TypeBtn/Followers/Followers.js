@@ -1,22 +1,44 @@
 import React, {useEffect, useState} from "react";
 import "./Followers.css";
+import Pagination from "react-js-pagination";
+
 
 export function Followers({followsUrl}) {
     const [follows,setFollows] = useState([]);
+    const [arrItem, setArrItem] = useState([]);
+    const [activePage,setActivePage] = useState(1);
+
+    const handlePageChange = (pageNumber) =>{
+        console.log(`active page is ${pageNumber}`);
+        setActivePage(pageNumber);
+    };
+
+    const printCart = (items)=>{
+        let newArr = [];
+        let size = 6;
+        for (let i=0; i<items.length; i+=size) {
+            newArr.push(items.slice(i,i+size));
+        }
+        setArrItem(newArr);
+        // console.log(arrItem);
+    };
 
     useEffect(() => {
         fetch(followsUrl)
             .then(response => response.json())
-            .then(data =>setFollows(data))
+            .then(data =>{
+                setFollows(data);
+                printCart(data)
+            })
     }, [followsUrl]);
 
   // console.log(follows);
 
     return(
-        follows.length ?
+        arrItem && arrItem.length>0 ?
             <div className={"Cart-Follows-Wraper"}>
                 {
-                    follows.map(follow=>
+                    arrItem[activePage-1].map(follow=>
                         <div key={follow.id} className={"Cart-Follows"}>
                             <div>
                                 <img src={follow.avatar_url} alt=""/>
@@ -28,6 +50,15 @@ export function Followers({followsUrl}) {
                         </div>
                     )
                 }
+                <Pagination
+                    itemClass="page-item"
+                    linkClass="page-link"
+                    activePage={activePage}
+                    itemsCountPerPage={6}
+                    totalItemsCount={follows.length}
+                    pageRangeDisplayed={Math.ceil(arrItem.length)}
+                    onChange={handlePageChange}
+                />
             </div>
         :
         <p>There isn't any followers!</p>

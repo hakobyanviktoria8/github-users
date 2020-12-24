@@ -1,22 +1,43 @@
 import React, {useEffect, useState} from "react";
 import "../Repository/Repository.css";
+import Pagination from "react-js-pagination";
 
 export function Gists({gistsUrl}) {
     const [gists,setGists] = useState([]);
+    const [arrItem, setArrItem] = useState([]);
+    const [activePage,setActivePage] = useState(1);
+
+    const handlePageChange = (pageNumber) =>{
+        console.log(`active page is ${pageNumber}`);
+        setActivePage(pageNumber);
+    };
+
+    const printCart = (items)=>{
+        let newArr = [];
+        let size = 6;
+        for (let i=0; i<items.length; i+=size) {
+            newArr.push(items.slice(i,i+size));
+        }
+        setArrItem(newArr);
+        // console.log(arrItem);
+    };
 
     useEffect(() => {
         fetch(gistsUrl)
             .then(response => response.json())
-            .then(data =>setGists(data))
+            .then(data =>{
+                setGists(data);
+                printCart(data)
+            })
     }, [gistsUrl]);
 
     console.log(gists);
 
     return(
-        gists.length ?
+        arrItem && arrItem.length>0 ?
             <div className={"CartsWraper"}>
                 {
-                    gists.map(gist=>
+                    arrItem[activePage-1].map(gist=>
                         <div key={gist.id} className={"Cart"}>
                             <div>
                                 <h2>{gist.files["syntax-transcripts.json"] ? gist.files["syntax-transcripts.json"].filename : "File Name"}</h2>
@@ -35,8 +56,17 @@ export function Gists({gistsUrl}) {
                         </div>
                     )
                 }
+                <Pagination
+                    itemClass="page-item"
+                    linkClass="page-link"
+                    activePage={activePage}
+                    itemsCountPerPage={6}
+                    totalItemsCount={gists.length}
+                    pageRangeDisplayed={Math.ceil(arrItem.length)}
+                    onChange={handlePageChange}
+                />
             </div>
             :
-            <p>There isn't any following!</p>
+            <p>There isn't any gists!</p>
     )
 }

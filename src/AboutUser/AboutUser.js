@@ -24,7 +24,7 @@ export function AboutUser({userData}) {
                     <nav>
                         <Link to="/repository">
                             <button>
-                                <div>
+                                <div className={"img"}>
                                     <img src={repos} alt=""/>
                                 </div>
                                 <div className={"text"}>
@@ -35,7 +35,7 @@ export function AboutUser({userData}) {
                         </Link>
                         <Link to={"/followers"}>
                             <button>
-                                <div>
+                                <div className={"img"}>
                                     <img src={followers} alt=""/>
                                 </div>
                                 <div className={"text"}>
@@ -46,7 +46,7 @@ export function AboutUser({userData}) {
                         </Link>
                         <Link to={"/following"}>
                             <button>
-                                <div>
+                                <div className={"img"}>
                                     <img src={following} alt=""/>
                                 </div>
                                 <div className={"text"}>
@@ -57,7 +57,7 @@ export function AboutUser({userData}) {
                         </Link>
                         <Link to={"/gists"}>
                             <button>
-                                <div>
+                                <div className={"img"}>
                                     <img src={gists} alt=""/>
                                 </div>
                                 <div className={"text"}>

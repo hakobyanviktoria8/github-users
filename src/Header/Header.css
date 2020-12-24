@@ -8,7 +8,7 @@
 .form {
     padding-left: 1rem;
     width: 25rem;
-    height: 1.5rem;
+    height: 1.8rem;
     border-radius: .3rem;
     border: 1px solid gainsboro;
     position: relative;
@@ -23,9 +23,10 @@
     width: 90%;
     border: none;
     outline: none;
+    font-size: .7rem;
 }
 .form img{
-    top: 0;
+    top: .2rem;
     position: absolute;
     right: 1rem;
     cursor: pointer;

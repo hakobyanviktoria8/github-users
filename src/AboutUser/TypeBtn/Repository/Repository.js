@@ -1,19 +1,40 @@
 import React,{ useState , useEffect } from "react";
 import "./Repository.css"
+import Pagination from "react-js-pagination";
 
 export function Repository({reposUrl}) {
     const [repos,setRepops] = useState([]);
+    const [arrItem, setArrItem] = useState([]);
+    const [activePage,setActivePage] = useState(1);
+
+    const handlePageChange = (pageNumber) =>{
+        console.log(`active page is ${pageNumber}`);
+        setActivePage(pageNumber);
+    };
+
+    const printCart = (items)=>{
+        let newArr = [];
+        let size = 6;
+        for (let i=0; i<items.length; i+=size) {
+            newArr.push(items.slice(i,i+size));
+        }
+        setArrItem(newArr);
+        // console.log(arrItem);
+    };
 
     useEffect(() => {
         fetch(reposUrl)
             .then(response => response.json())
-            .then(data =>setRepops(data))
+            .then(data =>{
+                setRepops(data);
+                printCart(data)
+            })
     }, [reposUrl]);
 
     return(
-        repos.length ?
+        arrItem && arrItem.length>0 ?
         <div className={"CartsWraper"}>
-            {repos.map(item =>
+            {arrItem[activePage-1].map(item =>
                 <div  className={"Cart"} key={item.id}>
                     <div><h2>{item.name}</h2></div>
                     <div><small>Description: {item.description && item.description.length>75 ? item.description.slice(0,75)+"..." : item.description}</small></div>
@@ -29,7 +50,15 @@ export function Repository({reposUrl}) {
                     </div>
                 </div>
             )}
-            {console.log(repos)}
+            <Pagination
+                itemClass="page-item"
+                linkClass="page-link"
+                activePage={activePage}
+                itemsCountPerPage={6}
+                totalItemsCount={repos.length}
+                pageRangeDisplayed={Math.ceil(arrItem.length)}
+                onChange={handlePageChange}
+            />
         </div>
         :
         <p>There isn't any repositories!</p>

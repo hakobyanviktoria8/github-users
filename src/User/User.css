@@ -6,11 +6,12 @@
 }
 .col{
     width: 30%;
+    /*border: 1px solid;*/
 }
 .col .avatar{
-    width: 70%;
+    width: 50%;
     border-radius: 50%;
-    margin: 15%;
+    margin: 5% 25%;
 }
 .col h3{
     text-align: center;
