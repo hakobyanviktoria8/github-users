@@ -1,6 +1,7 @@
 import React,{ useState , useEffect } from "react";
 import "./Repository.css"
 import Pagination from "react-js-pagination";
+import imgLoad from "../../img/Spin.gif";
 
 export function Repository({reposUrl}) {
     const [repos,setRepops] = useState([]);
@@ -29,6 +30,13 @@ export function Repository({reposUrl}) {
                 setRepops(data);
                 printCart(data)
             })
+            /*.finally(()=> (
+                <div>
+                    <img src={imgLoad} alt=""/>
+                    {console.log("load repos")}
+                </div>
+                )
+            )*/
     }, [reposUrl]);
 
     return(

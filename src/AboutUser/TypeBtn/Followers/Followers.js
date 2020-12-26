@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "./Followers.css";
 import Pagination from "react-js-pagination";
-
+import imgLoad from "../../img/Spin.gif";
 
 export function Followers({followsUrl}) {
     const [follows,setFollows] = useState([]);
@@ -28,8 +28,16 @@ export function Followers({followsUrl}) {
             .then(response => response.json())
             .then(data =>{
                 setFollows(data);
-                printCart(data)
+                printCart(data);
+                // console.log("data follows")
             })
+            /*.finally(()=> (
+                <div>
+                    <img src={imgLoad} alt=""/>
+                    {console.log("load follows")}
+                </div>
+                )
+            )*/
     }, [followsUrl]);
 
   // console.log(follows);
