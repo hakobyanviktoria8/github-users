@@ -1,14 +1,13 @@
 import './App.css';
-import {Header} from "./Header/Header";
-
-
+import Header from './components/Header/Header';
 
 function App() {
   return (
-    <div className="App">
+    <div className='container'>
+      <div className="App">
         <Header />
-        Hello
-    </div>
+      </div>
+    </div> 
   );
 }
 
