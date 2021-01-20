@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from "react";
 import "./Followers.css";
 import Pagination from "react-js-pagination";
-import imgLoad from "../../img/Spin.gif";
+import imgLoad from "../../img/Spinner.gif";
 
 export function Followers({followsUrl}) {
     const [follows,setFollows] = useState([]);
     const [arrItem, setArrItem] = useState([]);
     const [activePage,setActivePage] = useState(1);
+    const [loading, setLoading]=useState(false);
 
     const handlePageChange = (pageNumber) =>{
         console.log(`active page is ${pageNumber}`);
@@ -20,55 +21,53 @@ export function Followers({followsUrl}) {
             newArr.push(items.slice(i,i+size));
         }
         setArrItem(newArr);
-        // console.log(arrItem);
     };
 
     useEffect(() => {
+        setLoading(true);
         fetch(followsUrl)
             .then(response => response.json())
             .then(data =>{
                 setFollows(data);
                 printCart(data);
-                // console.log("data follows")
+                setLoading(false);
             })
-            /*.finally(()=> (
-                <div>
-                    <img src={imgLoad} alt=""/>
-                    {console.log("load follows")}
-                </div>
-                )
-            )*/
     }, [followsUrl]);
 
-  // console.log(follows);
-
-    return(
-        arrItem && arrItem.length>0 ?
-            <div className={"Cart-Follows-Wraper"}>
-                {
-                    arrItem[activePage-1].map(follow=>
-                        <div key={follow.id} className={"Cart-Follows"}>
-                            <div>
-                                <img src={follow.avatar_url} alt=""/>
-                            </div>
-                            <div>
-                                <h2>{follow.login}</h2>
-                                <p>{follow.html_url}</p>
-                            </div>
-                        </div>
-                    )
-                }
-                <Pagination
-                    itemClass="page-item"
-                    linkClass="page-link"
-                    activePage={activePage}
-                    itemsCountPerPage={6}
-                    totalItemsCount={follows.length}
-                    pageRangeDisplayed={Math.ceil(arrItem.length)}
-                    onChange={handlePageChange}
-                />
-            </div>
-        :
-        <p>There isn't any followers!</p>
+  return(
+      loading?
+          <div className={"loading"}>
+              <img src={imgLoad} alt=""/>
+          </div>
+          :
+          arrItem && arrItem.length>0 ?
+                <div>
+                    <div className={"Cart-Follows-Wraper"}>
+                        {
+                            arrItem[activePage-1].map(follow=>
+                                <div key={follow.id} className={"Cart-Follows"}>
+                                    <div>
+                                        <img src={follow.avatar_url} alt=""/>
+                                    </div>
+                                    <div>
+                                        <h2>{follow.login}</h2>
+                                        <p>{follow.html_url}</p>
+                                    </div>
+                                </div>
+                            )
+                        }
+                    </div>
+                    <Pagination
+                        itemClass="page-item"
+                        linkClass="page-link"
+                        activePage={activePage}
+                        itemsCountPerPage={6}
+                        totalItemsCount={follows.length}
+                        pageRangeDisplayed={Math.ceil(arrItem.length)}
+                        onChange={handlePageChange}
+                    />
+                </div>
+          :
+          <p className={"value0"}>There isn't any followers!</p>
     )
 }

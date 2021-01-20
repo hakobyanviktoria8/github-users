@@ -23,7 +23,6 @@
 }
 .AboutUser .img{
     width: 30%;
-    /*border: 1px solid;*/
 }
 .img img{
     width: 1.2rem;
@@ -48,4 +47,23 @@
 .AboutUser .main{
     width: 84%;
     margin: 1rem auto;
+}
+
+/*loading*/
+.loading{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #7f7272;
+}
+.loading img{
+    width: 10rem;
+}
+.value0{
+    height: 10vh;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 2rem;
 }

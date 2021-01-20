@@ -1,0 +1,3 @@
+Loading:
+https://www.basefactor.com/react-how-to-display-a-loading-indicator-on-fetch-calls
+https://medium.com/@lucymarmitchell/using-then-catch-finally-to-handle-errors-in-javascript-promises-6de92bce3afc

@@ -23,6 +23,7 @@ export function Header(props) {
         fetch(url)
             .then(response => response.json())
             .then(data => setuserData(data));
+        setInput("")
     };
     // trackPromise(userAPI.fetchUsers()
     //     .then((users)=>{

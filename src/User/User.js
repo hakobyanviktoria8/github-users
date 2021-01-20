@@ -6,7 +6,6 @@ import company from "./img/compani.png";
 import email from "./img/email.png";
 
 export function User({userData}) {
-    // console.log(userData);
     return(
         userData &&
         <div className={"User"}>
