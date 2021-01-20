@@ -34,8 +34,6 @@ export function Gists({gistsUrl}) {
             })
     }, [gistsUrl]);
 
-    console.log(gists);
-
     return(
         loading?
             <div className={"loading"}>
