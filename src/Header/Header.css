@@ -30,4 +30,9 @@
     position: absolute;
     right: 1rem;
     cursor: pointer;
+    width: 1.7rem;
+}
+
+input[type=checkbox], input[type=radio] {
+    width: 1rem;
 }
