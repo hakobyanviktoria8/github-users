@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/github-users/static/css/main.63542a40.chunk.css",
+    "main.js": "/github-users/static/js/main.b721f639.chunk.js",
+    "main.js.map": "/github-users/static/js/main.b721f639.chunk.js.map",
+    "runtime-main.js": "/github-users/static/js/runtime-main.fa4ac646.js",
+    "runtime-main.js.map": "/github-users/static/js/runtime-main.fa4ac646.js.map",
+    "static/css/2.109aacae.chunk.css": "/github-users/static/css/2.109aacae.chunk.css",
+    "static/js/2.e382551f.chunk.js": "/github-users/static/js/2.e382551f.chunk.js",
+    "static/js/2.e382551f.chunk.js.map": "/github-users/static/js/2.e382551f.chunk.js.map",
+    "index.html": "/github-users/index.html",
+    "static/css/2.109aacae.chunk.css.map": "/github-users/static/css/2.109aacae.chunk.css.map",
+    "static/css/main.63542a40.chunk.css.map": "/github-users/static/css/main.63542a40.chunk.css.map",
+    "static/js/2.e382551f.chunk.js.LICENSE.txt": "/github-users/static/js/2.e382551f.chunk.js.LICENSE.txt",
+    "static/media/Spinner.9597f0b3.gif": "/github-users/static/media/Spinner.9597f0b3.gif",
+    "static/media/logo.b55d7c29.png": "/github-users/static/media/logo.b55d7c29.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fa4ac646.js",
+    "static/css/2.109aacae.chunk.css",
+    "static/js/2.e382551f.chunk.js",
+    "static/css/main.63542a40.chunk.css",
+    "static/js/main.b721f639.chunk.js"
+  ]
+}
